@@ -14,11 +14,18 @@ A simple, easy to follow PHP templating engine. Designed to be forked, modified,
 <?php $this->parent('app::layout', ['title' => 'Blog Post: '.$title]); ?>
 
 <?php $this->block('content', function () { ?>
-    <h1><?=$this->escape($title);?></h1>
-
-    <?php foreach($paragraphs as $paragraph): ?>
-        <p><?=$this->escape($paragraph);?></p>
-    <?php endforeach; ?>
+    <article>
+        <header>
+            <h1><?=$this->escape($title);?></h1>
+        </header>
+        <main>
+            <?php foreach($paragraphs as $paragraph): ?>
+                <p>
+                    <?=$this->escape($paragraph);?>
+                </p>
+            <?php endforeach; ?>
+        </main>
+    </article>
 <?php }); ?>
 ```
 
