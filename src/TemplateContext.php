@@ -106,18 +106,18 @@ class TemplateContext
     /**
      * Define a parent template.
      *
-     * @param string $parentTemplate The name of the parent template.
-     * @param array  $parentParams   Parameters to add to the parent template context
+     * @param string $template The name of the parent template.
+     * @param array  $params   Parameters to add to the parent template context
      *
      * @throws EngineException If a parent template has already been defined.
      */
-    public function parent($parentTemplate, array $params = [])
+    public function parent($template, array $params = [])
     {
         if (null !== $this->parentTemplate) {
             throw new EngineException('A parent template has already been defined');
         }
 
-        $this->parentTemplate = $parentTemplate;
+        $this->parentTemplate = $template;
         $this->parentParams = array_merge($this->parentParams, $params);
     }
 
