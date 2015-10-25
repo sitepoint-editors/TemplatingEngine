@@ -1,0 +1,28 @@
+{
+    "name": "sitepoint/templating-engine",
+    "description": "A simple, easy to follow PHP templating engine",
+    "type": "library",
+    "keywords": ["templating", "templates", "engine"],
+    "homepage": "https://github.com/sitepoint/TemplatingEngine",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Carter",
+            "homepage": "http://andrewcarteruk.github.io/",
+            "role": "Developer"
+        }
+    ],
+    "require-dev": {
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "SitePoint\\TemplatingEngine\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SitePoint\\TemplatingEngine\\Test\\": "test/"
+        }
+    }
+}

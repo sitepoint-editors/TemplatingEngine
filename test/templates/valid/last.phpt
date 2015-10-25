@@ -1,0 +1,9 @@
+<html>
+    <head>
+        <title><?=$this->escape($title);?></title>
+    </head>
+    <body>
+        <?=$this->block('partial-block');?>
+        <?=$this->block('content');?>
+    </body>
+</html>
