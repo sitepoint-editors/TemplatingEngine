@@ -19,7 +19,7 @@ A simple, easy to follow PHP templating engine. Designed to be forked, modified,
     <?php foreach($paragraphs as $paragraph): ?>
         <?=$this->escape($paragraph);?>
     <?php endforeach; ?>
-<?php }) ?>
+<?php }); ?>
 ```
 
 ```php
