@@ -1,7 +1,7 @@
 # Templating Engine
 
 [![Latest Stable Version](https://poser.pugx.org/sitepoint/templating-engine/v/stable)](https://packagist.org/packages/sitepoint/templating-engine)
-[![Build Status](https://travis-ci.org/AndrewCarterUK/TemplatingEngine.svg?branch=master)](https://travis-ci.org/AndrewCarterUK/TemplatingEngine)
+[![Build Status](https://travis-ci.org/sitepoint/TemplatingEngine.svg?branch=master)](https://travis-ci.org/sitepoint/TemplatingEngine)
 [![Coverage Status](https://coveralls.io/repos/AndrewCarterUK/TemplatingEngine/badge.svg?branch=master&service=github)](https://coveralls.io/github/AndrewCarterUK/TemplatingEngine?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AndrewCarterUK/TemplatingEngine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AndrewCarterUK/TemplatingEngine/?branch=master)
 [![Code Climate](https://codeclimate.com/github/AndrewCarterUK/TemplatingEngine/badges/gpa.svg)](https://codeclimate.com/github/AndrewCarterUK/TemplatingEngine)
