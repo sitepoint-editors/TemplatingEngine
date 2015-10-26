@@ -54,7 +54,7 @@ class TemplateContext
         $this->params   = $params;
         $this->blocks   = $blocks;
 
-        // By default this is not a child template
+        // By default this template has no parent
         $this->parentTemplate = null;
         $this->parentParams   = $params;
     }
@@ -122,7 +122,7 @@ class TemplateContext
     }
 
     /**
-     * Include a template.
+     * Insert a template.
      *
      * @param string $template The name of the template.
      * @param array  $params   Parameters to add to the template context
@@ -138,19 +138,7 @@ class TemplateContext
     }
 
     /**
-     * Escape a string for safe output as HTML.
-     *
-     * @param string $raw The unescaped string.
-     *
-     * @return string The escaped HTML output.
-     */
-    public function escape($raw)
-    {
-        return htmlspecialchars($raw, ENT_QUOTES, 'UTF-8');
-    }
-
-    /**
-     * Define a block
+     * Render a block.
      *
      * @param string $name The name of the block.
      */
@@ -165,5 +153,17 @@ class TemplateContext
         }
 
         echo $this->blocks[$name];
+    }
+
+    /**
+     * Escape a string for safe output as HTML.
+     *
+     * @param string $raw The unescaped string.
+     *
+     * @return string The escaped HTML output.
+     */
+    public function escape($raw)
+    {
+        return htmlspecialchars($raw, ENT_QUOTES, 'UTF-8');
     }
 }

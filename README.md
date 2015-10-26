@@ -8,7 +8,13 @@
 
 A simple, easy to follow PHP templating engine. Designed to be forked, modified, extended and hacked.
 
-## Usage
+## Example Usage
+
+This templating engine supports inheritance through blocks. Child templates declare blocks which can be overridden, extended and displayed by parent templates.
+
+Child templates can declare a single parent template at any point using the `parent()` method which also provides the opportunity to modify the variables that are in scope.
+
+All templates must follow the `namespace::path/to/template` format. Namespaces are registered with the templating engine when it is constructed. The default template extension is `phpt`, but this can be overridden.
 
 ```php
 <?php $this->parent('app::layout', ['title' => 'Blog Post: '.$title]); ?>
@@ -40,7 +46,6 @@ A simple, easy to follow PHP templating engine. Designed to be forked, modified,
 </html>
 ```
 
-
 ```php
 use SitePoint\TemplatingEngine\TemplatingEngine;
 
@@ -55,6 +60,50 @@ $params = [
 ];
 
 echo $engine->render('app::post', $params);
+```
+
+## Template Context Methods
+
+```php
+/**
+ * Define a parent template.
+ *
+ * @param string $template The name of the parent template.
+ * @param array  $params   Parameters to add to the parent template context
+ *
+ * @throws EngineException If a parent template has already been defined.
+ */
+public function parent($template, array $params = []);
+```
+
+```php
+/**
+ * Insert a template.
+ *
+ * @param string $template The name of the template.
+ * @param array  $params   Parameters to add to the template context
+ */
+public function insert($template, array $params = []);
+```
+
+```php
+/**
+ * Render a block.
+ *
+ * @param string $name The name of the block.
+ */
+public function block($name, callable $callback = null);
+```
+
+```php
+/**
+ * Escape a string for safe output as HTML.
+ *
+ * @param string $raw The unescaped string.
+ *
+ * @return string The escaped HTML output.
+ */
+public function escape($raw);
 ```
 
 ## Change Log
