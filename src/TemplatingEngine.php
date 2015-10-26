@@ -41,7 +41,7 @@ class TemplatingEngine
      * @param array  $functions  The functions to register.
      * @param string $extension  The file extension of the templates.
      */
-    public function __construct(array $namespaces = [], array $functions = [], $extension = 'phpt')
+    public function __construct(array $namespaces = [], array $functions = [], $extension = 'phtml')
     {
         $this->namespaces = $namespaces;
         $this->functions  = $functions;

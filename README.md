@@ -48,15 +48,15 @@ All templates must follow the `namespace::path/to/template` format.
 
 Namespaces and function callbacks are registered with the templating engine when it is constructed. Function callbacks are available as methods within the template context and must be `callable`.
 
-The default template extension is `phpt`, but this can be overridden.
+The default template extension is `phtml`, but this can be overridden.
 
 ```php
 use SitePoint\TemplatingEngine\TemplatingEngine;
 
 $engine = new TemplatingEngine(
-    ['app'  => '/path/to/app/templates'], // The namespaces to register
+    ['app'  => '/path/to/templates/app'], // The namespaces to register
     ['caps' => 'strtoupper'],             // Function callbacks to register inside the template context
-    'phpt'                                // The extension of the templates (defaults to phpt)
+    'phtml'                               // The extension of the templates (defaults to phtml)
 );
 
 $params = [
