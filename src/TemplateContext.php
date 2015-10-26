@@ -166,4 +166,18 @@ class TemplateContext
     {
         return htmlspecialchars($raw, ENT_QUOTES, 'UTF-8');
     }
+
+    /**
+     * Delegate a method call to the templating engine to see if a function has
+     * been defined.
+     *
+     * @param string $name      The method name being called.
+     * @param array  $arguments The arguments provided to the method.
+     *
+     * @return mixed The function result.
+     */
+    public function __call($name, array $arguments)
+    {
+        return $this->engine->callFunction($name, $arguments);
+    }
 }

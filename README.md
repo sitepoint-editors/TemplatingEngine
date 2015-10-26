@@ -14,7 +14,7 @@ This templating engine supports inheritance through blocks. Child templates decl
 
 Child templates can declare a single parent template at any point using the `parent()` method which also provides the opportunity to modify the variables that are in scope.
 
-All templates must follow the `namespace::path/to/template` format. Namespaces are registered with the templating engine when it is constructed. The default template extension is `phpt`, but this can be overridden.
+All templates must follow the `namespace::path/to/template` format.
 
 ```php
 <?php $this->parent('app::layout', ['title' => 'Blog Post: '.$title]); ?>
@@ -22,7 +22,7 @@ All templates must follow the `namespace::path/to/template` format. Namespaces a
 <?php $this->block('content', function () { ?>
     <article>
         <header>
-            <h1><?=$this->escape($title);?></h1>
+            <h1><?=$this->escape($this->caps($title));?></h1>
         </header>
         <main>
             <?php foreach($paragraphs as $paragraph): ?>
@@ -46,10 +46,18 @@ All templates must follow the `namespace::path/to/template` format. Namespaces a
 </html>
 ```
 
+Namespaces and function callbacks are registered with the templating engine when it is constructed. Function callbacks are available as methods within the template context and must be `callable`.
+
+The default template extension is `phpt`, but this can be overridden.
+
 ```php
 use SitePoint\TemplatingEngine\TemplatingEngine;
 
-$engine = new TemplatingEngine(['app' => '/path/to/app/templates']);
+$engine = new TemplatingEngine(
+    ['app'  => '/path/to/app/templates'], // The namespaces to register
+    ['caps' => 'strtoupper'],             // Function callbacks to register inside the template context
+    'phpt'                                // The extension of the templates (defaults to phpt)
+);
 
 $params = [
     'title' => 'My Blog Post',
@@ -63,6 +71,8 @@ echo $engine->render('app::post', $params);
 ```
 
 ## Template Context Methods
+
+The following methods are available by default within the template context.
 
 ```php
 /**

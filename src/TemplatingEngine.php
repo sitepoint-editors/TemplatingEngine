@@ -17,6 +17,11 @@ class TemplatingEngine
     private $namespaces;
 
     /**
+     * @var array
+     */
+    private $functions;
+
+    /**
      * @var string
      */
     private $extension;
@@ -24,16 +29,22 @@ class TemplatingEngine
     /**
      * Constructor for the engine.
      *
-     * The key of entries into the namespaces array should be the namespace
+     * The key of the entries into the namespaces array should be the namespace
      * and the value should be the root directory path for templates in that
      * namespace.
      *
-     * @param array  $namespaces The template namespaces.
+     * The key of the entries to the functions array should be the method name
+     * to hook in the template context and the value should be a callable to
+     * invoke when this method is called.
+     *
+     * @param array  $namespaces The template namespaces to register.
+     * @param array  $functions  The functions to register.
      * @param string $extension  The file extension of the templates.
      */
-    public function __construct(array $namespaces = [], $extension = 'phpt')
+    public function __construct(array $namespaces = [], array $functions = [], $extension = 'phpt')
     {
         $this->namespaces = $namespaces;
+        $this->functions  = $functions;
         $this->extension  = $extension;
     }
 
@@ -72,6 +83,23 @@ class TemplatingEngine
     }
 
     /**
+     * Call a function that has been registered with the templating engine.
+     *
+     * @param string $name      The function name.
+     * @param array  $arguments The arguments to supply to the function.
+     *
+     * @return mixed The function result.
+     */
+    public function callFunction($name, array $arguments = [])
+    {
+        if (!isset($this->functions[$name]) || !is_callable($this->functions[$name])) {
+            throw new EngineException('The '.$name.' function does not exist or is not callable');
+        }
+
+        return call_user_func_array($this->functions[$name], $arguments);
+    }
+
+    /**
      * Check to see if a template exists.
      *
      * @param string $name The service name.
@@ -97,7 +125,7 @@ class TemplatingEngine
      * @param string $name   The template name.
      * @param array  $params An array of parameters to pass to the template.
      *
-     * @return string The rendered template content.
+     * @return TemplateResult The result from the template.
      *
      * @throws InvalidTemplateNameException If the template name is invalid.
      * @throws TemplateNotFoundException    If the template namespace does not exist.
@@ -106,8 +134,6 @@ class TemplatingEngine
     public function render($name, array $params = [])
     {
         $context = new TemplateContext($this, $name, $params, []);
-        $result = $context();
-
-        return $result->getContent();
+        return $context()->getContent();
     }
 }

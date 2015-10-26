@@ -3,6 +3,7 @@
         <title><?=$this->escape($title);?></title>
     </head>
     <body>
+        <?=$this->caps($shout);?>
         <?=$this->block('partial-block');?>
         <?=$this->block('content');?>
     </body>

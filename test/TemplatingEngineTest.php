@@ -8,19 +8,23 @@ class TemplatingEngineTest extends \PHPUnit_Framework_TestCase
 {
     public function testEngine()
     {
-        $engine = new TemplatingEngine(['test' => __DIR__.'/templates/valid']);
+        $engine = new TemplatingEngine(
+            ['test' => __DIR__.'/templates/valid'],
+            ['caps' => 'strtoupper']
+        );
 
         // Test exists()
         $this->assertTrue($engine->exists('test::first'));
         $this->assertFalse($engine->exists('foo::bar'));
 
         // Test render()
-        $result = $engine->render('test::first', ['title' => 'Hello World']);
+        $result = $engine->render('test::first', ['title' => 'Hello World', 'shout' => 'shout']);
 
         $expectedResult = <<<EOT
 <html>
     <head><title>Middle Hello World</title></head>
     <body>
+        SHOUT
         Partial Block
         Middle First
     </body>
@@ -91,5 +95,15 @@ EOT;
     {
         $engine = new TemplatingEngine(['test' => __DIR__.'/templates/invalid']);
         $result = $engine->render('test::double-parent');
+    }
+
+    /**
+     * @expectedException        SitePoint\TemplatingEngine\Exception\EngineException
+     * @expectedExceptionMessage function does not exist
+     */
+    public function testFunctionDoesNotExist()
+    {
+        $engine = new TemplatingEngine(['test' => __DIR__.'/templates/invalid']);
+        $result = $engine->render('test::function-does-not-exist');
     }
 }
