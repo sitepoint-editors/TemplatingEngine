@@ -1,10 +1,10 @@
 # Templating Engine
 
-<!--- [![Latest Stable Version](https://poser.pugx.org/sitepoint/templating-engine/v/stable)](https://packagist.org/packages/sitepoint/templating-engine)
+<!-- [![Latest Stable Version](https://poser.pugx.org/sitepoint/templating-engine/v/stable)](https://packagist.org/packages/sitepoint/templating-engine) -->
 [![Build Status](https://travis-ci.org/sitepoint/TemplatingEngine.svg?branch=master)](https://travis-ci.org/sitepoint/TemplatingEngine)
 [![Coverage Status](https://coveralls.io/repos/sitepoint/TemplatingEngine/badge.svg?branch=master&service=github)](https://coveralls.io/github/sitepoint/TemplatingEngine?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sitepoint/TemplatingEngine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sitepoint/TemplatingEngine/?branch=master)
-[![Total Downloads](https://poser.pugx.org/sitepoint/templating-engine/downloads)](https://packagist.org/packages/sitepoint/templating-engine)[![License](https://poser.pugx.org/sitepoint/container/license)](https://packagist.org/packages/sitepoint/templating-engine) -->
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AndrewCarterUK/TemplatingEngine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AndrewCarterUK/TemplatingEngine/?branch=master)
+<!-- [![Total Downloads](https://poser.pugx.org/sitepoint/templating-engine/downloads)](https://packagist.org/packages/sitepoint/templating-engine)[![License](https://poser.pugx.org/sitepoint/container/license)](https://packagist.org/packages/sitepoint/templating-engine) -->
 
 A simple, easy to follow PHP templating engine. Designed to be forked, modified, extended and hacked.
 
