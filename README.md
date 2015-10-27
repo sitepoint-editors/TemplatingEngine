@@ -1,4 +1,4 @@
-# Templating Engine
+# ![SitePoint](https://avatars2.githubusercontent.com/u/15340853?v=3&s=40) Templating Engine
 
 [![Latest Stable Version](https://poser.pugx.org/sitepoint/templating-engine/v/stable)](https://packagist.org/packages/sitepoint/templating-engine)
 [![Build Status](https://travis-ci.org/sitepoint/TemplatingEngine.svg?branch=master)](https://travis-ci.org/sitepoint/TemplatingEngine)
