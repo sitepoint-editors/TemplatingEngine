@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/sitepoint/templating-engine/v/stable)](https://packagist.org/packages/sitepoint/templating-engine)
 [![Build Status](https://travis-ci.org/sitepoint/TemplatingEngine.svg?branch=master)](https://travis-ci.org/sitepoint/TemplatingEngine)
-[![Coverage Status](https://coveralls.io/repos/AndrewCarterUK/TemplatingEngine/badge.svg?branch=master&service=github)](https://coveralls.io/github/AndrewCarterUK/TemplatingEngine?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/sitepoint/TemplatingEngine/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sitepoint/TemplatingEngine/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AndrewCarterUK/TemplatingEngine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AndrewCarterUK/TemplatingEngine/?branch=master)
 [![Code Climate](https://codeclimate.com/repos/562f5ab26956804f290021b2/badges/5d9d0ff31e26e0ba3c9d/gpa.svg)](https://codeclimate.com/repos/562f5ab26956804f290021b2/feed)
 [![Total Downloads](https://poser.pugx.org/sitepoint/templating-engine/downloads)](https://packagist.org/packages/sitepoint/templating-engine)
