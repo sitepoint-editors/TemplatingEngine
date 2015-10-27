@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## master branch
+## 0.0.1 - 2015-10-27
 
 ### Added
 - Initial project classes
@@ -13,4 +13,3 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Git files (ignore, attributes)
 - Travis configuration file
 - Scrutinizer configuration file
-- 
