@@ -118,6 +118,10 @@ public function block($name, callable $callback = null);
 public function escape($raw);
 ```
 
+## Authors
+
+- [Andrew Carter](https://twitter.com/AndrewCarterUK)
+
 ## Change Log
 
 This project maintains a [change log file](CHANGELOG.md)
