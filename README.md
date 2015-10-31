@@ -21,7 +21,7 @@ All templates must follow the `namespace::path/to/template` format.
 ```php
 <?php $this->parent('app::layout', ['title' => 'Blog Post: '.$title]); ?>
 
-<?php $this->block('content', function () use ($title, $paragraphs) { ?>
+<?php $this->block('content', function ($params) { extract($params); ?>
     <article>
         <header>
             <h1><?=$this->escape($this->caps($title));?></h1>

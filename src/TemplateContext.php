@@ -68,9 +68,9 @@ class TemplateContext
      */
     public function __invoke()
     {
-        $content = $this->getOutput(function () {
+        $content = $this->getOutput(function ($params) {
             $templatePath = $this->engine->getTemplatePath($this->name);
-            extract($this->params);
+            extract($params);
             include $templatePath;
         });
 
@@ -94,7 +94,7 @@ class TemplateContext
         ob_start();
 
         try {
-            $callback();
+            $callback($this->params);
         } finally {
             $output = ob_get_contents();
             ob_end_clean();

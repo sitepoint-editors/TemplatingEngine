@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - TemplatingEngineInterface
+- Provided parameters as array to block callbacks
 
 ### Changed
 - Fixed README example
