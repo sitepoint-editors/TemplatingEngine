@@ -49,14 +49,30 @@ class TemplatingEngine
     }
 
     /**
-     * Convert a template name to a file path.
-     *
-     * @param string $name The template name.
-     *
-     * @return string The file path of the template.
-     *
-     * @throws InvalidTemplateNameException If the template name is invalid.
-     * @throws TemplateNotFoundException    If the template namespace does not exist.
+     * {@inheritDoc}
+     */
+    public function render($name, array $params = [])
+    {
+        $context = new TemplateContext($this, $name, $params, []);
+        return $context()->getContent();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function exists($name)
+    {
+        try {
+            $this->getTemplatePath($name);
+        } catch (TemplateNotFoundException $exception) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * {@inheritDoc}
      */
     public function getTemplatePath($name)
     {
@@ -83,12 +99,7 @@ class TemplatingEngine
     }
 
     /**
-     * Call a function that has been registered with the templating engine.
-     *
-     * @param string $name      The function name.
-     * @param array  $arguments The arguments to supply to the function.
-     *
-     * @return mixed The function result.
+     * {@inheritDoc}
      */
     public function callFunction($name, array $arguments = [])
     {
@@ -97,43 +108,5 @@ class TemplatingEngine
         }
 
         return call_user_func_array($this->functions[$name], $arguments);
-    }
-
-    /**
-     * Check to see if a template exists.
-     *
-     * @param string $name The service name.
-     *
-     * @return bool True if the container has the service, false otherwise.
-     *
-     * @throws InvalidTemplateNameException If the template name is invalid.
-     */
-    public function exists($name)
-    {
-        try {
-            $this->getTemplatePath($name);
-        } catch (TemplateNotFoundException $exception) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * Render a template.
-     *
-     * @param string $name   The template name.
-     * @param array  $params An array of parameters to pass to the template.
-     *
-     * @return TemplateResult The result from the template.
-     *
-     * @throws InvalidTemplateNameException If the template name is invalid.
-     * @throws TemplateNotFoundException    If the template namespace does not exist.
-     * @throws EngineException              If an error is encountered rendering the template.
-     */
-    public function render($name, array $params = [])
-    {
-        $context = new TemplateContext($this, $name, $params, []);
-        return $context()->getContent();
     }
 }
